@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "live-server dist | webpack --watch"
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,11 @@
     "live-server": "^1.2.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "superagent": "^5.2.2"
   }
 }
