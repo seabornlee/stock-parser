@@ -9,12 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "html-webpack-plugin": "^4.0.1",
-    "live-server": "^1.2.1",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
-  },
   "dependencies": {
     "express": "^4.17.1",
     "node-fetch": "^2.6.0"
