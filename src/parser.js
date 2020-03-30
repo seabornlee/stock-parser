@@ -3,8 +3,9 @@ const fetch = require('node-fetch')
 module.exports = class StockParser {
   async parse() {
     const catagories = await this.fetchCatagories()
+    const bulishes = catagories.filter(c => c[3] > 0)
     const stocks = []
-    for (let c of catagories) {
+    for (let c of bulishes) {
       const list = await this.fetchStocks(c[0])
       list.forEach(s => stocks.push(s[1]))
     }
