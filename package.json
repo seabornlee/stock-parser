@@ -1,9 +1,10 @@
 {
   "name": "stock-parser",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "version": "echo $npm_package_version",
     "start": "node src/index.js",
     "test": "jest"
   },
