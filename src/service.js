@@ -1,16 +1,30 @@
 const StockParser = require("./parser");
 const fs = require("fs");
 const path = require("path");
+const { formatCode } = require('./util')
 
 module.exports = class Service {
-  async getFilePath() {
+  async getCodes() {
+    const data = await this.getStockData()
+    return data.map(r => {
+      const code = r[0]
+      return formatCode(code)
+    })
+  }
+
+  async getNames() {
+    const data = await this.getStockData()
+    return data.map(r => r[1])
+  }
+
+  async getStockData() {
     const filePath = path.resolve("./data/", this.getFileName());
     if (!fs.existsSync(filePath)) {
       const data = await new StockParser().parse();
-      const string = data.join("\r\n");
-      fs.writeFileSync(filePath, string, "utf-8");
+      fs.writeFileSync(filePath, JSON.stringify(data), "utf8");
     }
-    return filePath;
+    const text = fs.readFileSync(filePath, 'utf8')
+    return JSON.parse(text);
   }
 
   getFileName() {

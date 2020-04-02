@@ -7,7 +7,7 @@ module.exports = class StockParser {
     const stocks = []
     for (let c of bulishes) {
       const list = await this.fetchStocks(c[0])
-      list.forEach(s => stocks.push(s[1]))
+      stocks.push(...list)
     }
     return stocks
   }
