@@ -19,7 +19,7 @@ app.get("/:type", async (req, res) => {
   const string = data.join("\r\n");
   res.contentType("text/plain");
   res.set({
-    "Content-Disposition": `attachment; filename=stocks-${req.params.type}.txt`
+    "Content-Disposition": `attachment; filename=stocks-${req.params.type}.BLK`
   });
   res.send(string);
 });
