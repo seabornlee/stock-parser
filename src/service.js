@@ -18,13 +18,10 @@ module.exports = class Service {
   }
 
   async getStockData() {
+    const data = await new StockParser().parse();
     const filePath = path.resolve("./data/", this.getFileName());
-    if (!fs.existsSync(filePath)) {
-      const data = await new StockParser().parse();
-      fs.writeFileSync(filePath, JSON.stringify(data), "utf8");
-    }
-    const text = fs.readFileSync(filePath, 'utf8')
-    return JSON.parse(text);
+    fs.writeFileSync(filePath, JSON.stringify(data), "utf8");
+    return data;
   }
 
   getFileName() {
