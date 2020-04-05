@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const Service = require("./service");
+const fs = require("fs")
+
+const service = new Service() 
 
 app.get("/:type", async (req, res) => {
   const type = req.params.type
@@ -9,7 +12,6 @@ app.get("/:type", async (req, res) => {
     return
   }
 
-  const service = new Service()
   let data
   if (type === 'code') 
     data = await service.getCodes();
@@ -24,4 +26,12 @@ app.get("/:type", async (req, res) => {
   res.send(string);
 });
 
+app.get("/code/xml", async (req, res) => {
+  let data = await service.getCodes();
+  const nodes = data.map(code => `<stk setcode="${code.charAt(0)}" code="${code.substring(1)}"/>`)
+  const xml = fs.readFileSync('./template.xml', 'utf-8')
+  const result = xml.replace("${codes}", nodes.join(""))
+  res.attachment( '看多板块.xml')
+  res.send(result);
+});
 module.exports = app
