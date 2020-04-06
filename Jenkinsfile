@@ -1,5 +1,7 @@
 def npm_registry = 'https://registry.npm.taobao.org'
 
+DEPLOY_CREDENTIALS_ID = "deploy-aliyun"
+ARTIFACTS_CREDENTIALS_ID = "seabornlee-dockerhub"
 dockerServer = "mdeditor-docker.pkg.coding.net"
 artifactName = "stock-parser"
 imageName = "${dockerServer}/stock/main/${artifactName}"
@@ -47,7 +49,7 @@ pipeline {
         stage('Push Docker Image') {
           steps {
             script {
-              docker.withRegistry("https://${dockerServer}/stock/main", CODING_ARTIFACTS_CREDENTIALS_ID) {
+              docker.withRegistry([url: "", credentialsId: ARTIFACTS_CREDENTIALS_ID]) {
                 docker.image(imageName).push()
               }
             }
@@ -67,13 +69,13 @@ pipeline {
               dockerPassword = ""
 
               // 获取内置的制品库凭证
-              withCredentials([usernamePassword(credentialsId: env.CODING_ARTIFACTS_CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
+              withCredentials([usernamePassword(credentialsId: ARTIFACTS_CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
                 dockerUser = DOCKER_USER
                 dockerPassword = DOCKER_PASSWORD
               }
 
               // 需要先创建一对密钥，把私钥放在 CODING 凭据管理，把公钥放在服务器的 `.ssh/authorized_keys`，实现 SSH 免密码登录
-              withCredentials([sshUserPrivateKey(credentialsId: "a22a994a-19a5-41ac-b9a2-72ac63d27c7f", keyFileVariable: 'id_rsa')]) {
+              withCredentials([sshUserPrivateKey(credentialsId: DEPLOY_CREDENTIALS_ID, keyFileVariable: 'id_rsa')]) {
                 remote.identityFile = id_rsa
 
                 // SSH 连接到远端服务器，拉取 Docker 镜像
