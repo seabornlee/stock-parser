@@ -49,7 +49,7 @@ pipeline {
         stage('Push Docker Image') {
           steps {
             script {
-              docker.withRegistry([url: "", credentialsId: ARTIFACTS_CREDENTIALS_ID]) {
+              withDockerRegistry(credentialsId: ARTIFACTS_CREDENTIALS_ID) {
                 docker.image(imageName).push()
               }
             }
