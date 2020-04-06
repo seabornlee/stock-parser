@@ -79,7 +79,7 @@ pipeline {
                 remote.identityFile = id_rsa
 
                 // SSH 连接到远端服务器，拉取 Docker 镜像
-                sshCommand remote: remote, command: "docker login -u ${dockerUser} -p ${dockerPassword} ${dockerServer}"
+                sshCommand remote: remote, command: "docker login -u '${dockerUser}' -p '${dockerPassword}' ${dockerServer}"
                 sshCommand remote: remote, command: "docker pull ${imageName}"
                 sshCommand remote: remote, command: "docker stop ${artifactName} | true"
                 sshCommand remote: remote, command: "docker rm ${artifactName} | true"
