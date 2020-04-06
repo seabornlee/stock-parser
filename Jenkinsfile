@@ -5,12 +5,7 @@ artifactName = "stock-parser"
 imageName = "${dockerServer}/stock/main/${artifactName}"
 
 pipeline {
-  agent { 
-    docker {
-      image 'node:12-alpine' 
-      args '-u root -v $(which docker):/usr/bin/docker --privileged'
-    }
-  }
+  agent any 
 
   stages {
     stage('Checkout') {
