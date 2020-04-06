@@ -12,14 +12,10 @@ pipeline {
     }
   }
 
-  parameters {
-    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-  }
-
   stages {
     stage('Checkout') {
       steps {
-        git branch: "${params.BRANCH}", url: scm.userRemoteConfigs[0].url
+        checkout scm
       }
     }
 
