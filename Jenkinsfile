@@ -2,9 +2,9 @@ def npm_registry = 'https://registry.npm.taobao.org'
 
 DEPLOY_CREDENTIALS_ID = "deploy-aliyun"
 ARTIFACTS_CREDENTIALS_ID = "seabornlee-dockerhub"
-dockerServer = "" // Docker Hub
+dockerServer = "" // Docker Hub, useful when use private registry
 artifactName = "stock-parser"
-imageName = "hkliya/stock-parser/${artifactName}"
+imageName = "hkliya/${artifactName}"
 
 pipeline {
   agent any 
