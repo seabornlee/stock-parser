@@ -8,7 +8,7 @@ pipeline {
   agent { 
     docker {
       image 'node:12-alpine' 
-      args '-u root --privileged'
+      args '-u root -v $(which docker):/usr/bin/docker --privileged'
     }
   }
 
