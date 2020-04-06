@@ -40,7 +40,8 @@ pipeline {
         stage('Build Docker Image') {
           steps {
             script {
-              version = sh(returnStdout: true, script: '''grep 'version' package.json | cut -d '"' -f4 | tr '\n' '\0'''').trim()
+              version = sh label: 'get version', returnStdout: true, script: '''grep \'version\' package.json | cut -d \'"\' -f4 | tr \'\\n\' \'\\0\'
+'''
               echo "Current package version: $version"
               imageName = "${imageName}:${version}"
               docker.build(imageName)
