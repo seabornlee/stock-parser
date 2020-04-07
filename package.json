@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "iconv": "^2.3.5",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
