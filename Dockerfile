@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.5-nodejs13-alpine
+FROM nikolaik/python-nodejs:python3.5-nodejs13
 
 WORKDIR /usr/src/app
 
