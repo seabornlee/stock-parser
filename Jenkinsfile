@@ -71,6 +71,7 @@ pipeline {
           steps {
             script {
               deployVersion(imageName, version)
+              sleep 5 // wait for the application bootstrap
             }
           }
         }
