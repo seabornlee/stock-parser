@@ -12,10 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "iconv": "^2.3.5",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "iconv-lite": "^0.5.1",
     "jest": "^25.2.6",
     "supertest": "^4.0.2"
   }

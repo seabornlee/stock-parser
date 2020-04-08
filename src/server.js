@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const Service = require("./service");
 const fs = require("fs")
-const Iconv  = require('iconv').Iconv;
+const iconv = require('iconv-lite');
 
 const service = new Service() 
 
@@ -31,8 +31,8 @@ app.get("/code/xml", async (req, res) => {
   let data = await service.getCodes();
   const nodes = data.map(code => `<stk setcode="${code.charAt(0)}" code="${code.substring(1)}"/>`)
   const buffer = fs.readFileSync('./template.xml')
-  const iconv = new Iconv('gb2312', 'UTF-8');
-  const xml = iconv.convert(buffer).toString('utf8')
+  const template = iconv.decode(buffer, 'gb2312')
+  const xml = iconv.encode(template, 'utf8').toString()
   const result = xml.replace("${codes}", nodes.join(""))
   res.attachment('看多板块.xml')
   res.send(result);
