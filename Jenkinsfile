@@ -17,6 +17,14 @@ pipeline {
       }
     }
 
+    stage('Test docker login') {
+      steps {
+        script {
+          deployVersion(imageName, '2.x')
+        }
+      }
+    }
+
     stage('Prepare') {
       steps {
         script {
@@ -127,7 +135,7 @@ void deployVersion(imageName, version) {
   def commands = []
 
   artifactName = imageName.split("/")[1]
-  commands.add("docker login -u '\$DOCKER_USER' -p '\$DOCKER_PASSWORD' ${dockerServer}")
+  commands.add("docker login --username=\$DOCKER_USER --password=\$DOCKER_PASSWORD ${dockerServer}")
   commands.add("docker pull ${imageName}:${version}")
   commands.add("docker stop ${artifactName} | true")
   commands.add("docker rm ${artifactName} | true")
