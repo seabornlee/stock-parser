@@ -17,14 +17,6 @@ pipeline {
       }
     }
 
-    stage('Test docker login') {
-      steps {
-        script {
-          deployVersion(imageName, '2.x')
-        }
-      }
-    }
-
     stage('Prepare') {
       steps {
         script {
