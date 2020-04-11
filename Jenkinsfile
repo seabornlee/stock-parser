@@ -122,7 +122,7 @@ String executeSSHCommands(commands) {
   withCredentials([sshUserPrivateKey(credentialsId: DEPLOY_CREDENTIALS_ID, keyFileVariable: 'id_rsa')]) {
     remote.identityFile = id_rsa
     commands.each {
-      result = sshCommand remote: remote, command: it
+      result = sshCommand remote: remote, command: it, sudo: true
     }
   }
   return result
