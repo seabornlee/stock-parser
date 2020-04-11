@@ -78,7 +78,7 @@ pipeline {
 
         stage('Rollback') {
           when {
-            expression { return serviceNotHeathy(heathCheckURL) }
+            expression { return serviceNotHeathy(heathCheckURL) && runningVersion != '' }
           }
 
           steps {
@@ -102,8 +102,12 @@ Boolean serviceNotHeathy(url) {
 }
 
 String getRunningVersion() {
-  String command = "docker container ls | grep hkliya/stock-parser | awk -F '[ ]+' '{print \$2}' | cut -d':' -f 2"
-  return executeSSHCommands([command])
+  try {
+    String command = "docker container ls | grep hkliya/stock-parser | awk -F '[ ]+' '{print \$2}' | cut -d':' -f 2"
+    return executeSSHCommands([command])
+  } catch (Exception ex) {
+    return ''
+  }
 }
 
 // 需要先创建一对密钥，把私钥放在 CODING 凭据管理，把公钥放在服务器的 `.ssh/authorized_keys`，实现 SSH 免密码登录
