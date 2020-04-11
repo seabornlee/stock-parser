@@ -116,7 +116,7 @@ String executeSSHCommands(commands) {
   remote.name = 'web-server'
   remote.allowAnyHosts = true
   remote.host = 'stock.codingstyle.cn'
-  remote.user = 'ruby'
+  remote.user = 'ansible'
 
   String result
   withCredentials([sshUserPrivateKey(credentialsId: DEPLOY_CREDENTIALS_ID, keyFileVariable: 'id_rsa')]) {
