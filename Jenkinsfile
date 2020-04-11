@@ -111,7 +111,7 @@ String executeSSHCommands(commands) {
   def remote = [:]
   remote.name = 'web-server'
   remote.allowAnyHosts = true
-  remote.host = 'codingstyle.cn'
+  remote.host = 'stock.codingstyle.cn'
   remote.user = 'ruby'
 
   String result
