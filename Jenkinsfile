@@ -1,7 +1,7 @@
 def npm_registry = 'https://registry.npm.taobao.org'
 
 heathCheckURL = "http://stock.codingstyle.cn/code/xml"
-DEPLOY_CREDENTIALS_ID = "deploy-aliyun"
+DEPLOY_CREDENTIALS_ID = "txy"
 ARTIFACTS_CREDENTIALS_ID = "seabornlee-dockerhub"
 dockerServer = "" // Docker Hub, useful when use private registry
 artifactName = "stock-parser"
