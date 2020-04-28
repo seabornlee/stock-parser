@@ -42,7 +42,7 @@ function renderXML(data) {
 }
 
 app.get("/kpl/code/xml", async (req, res) => {
-  res.attachment('看多板块.xml')
+  res.attachment('开盘啦板块.xml')
   res.send(renderXML(await kplService.getCodes()));
 });
 module.exports = app
