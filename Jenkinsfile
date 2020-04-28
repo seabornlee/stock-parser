@@ -1,7 +1,7 @@
 def npm_registry = 'https://registry.npm.taobao.org'
 
 heathCheckURL = "http://stock.codingstyle.cn/code/xml"
-DEPLOY_CREDENTIALS_ID = "deploy-aliyun"
+DEPLOY_CREDENTIALS_ID = "txy"
 ARTIFACTS_CREDENTIALS_ID = "seabornlee-dockerhub"
 dockerServer = "" // Docker Hub, useful when use private registry
 artifactName = "stock-parser"
@@ -78,7 +78,7 @@ pipeline {
 
         stage('Rollback') {
           when {
-            expression { return serviceNotHeathy(heathCheckURL) }
+            expression { return serviceNotHeathy(heathCheckURL) && runningVersion != '' }
           }
 
           steps {
@@ -102,8 +102,12 @@ Boolean serviceNotHeathy(url) {
 }
 
 String getRunningVersion() {
-  String command = "docker container ls | grep hkliya/stock-parser | awk -F '[ ]+' '{print \$2}' | cut -d':' -f 2"
-  return executeSSHCommands([command])
+  try {
+    String command = "docker container ls | grep hkliya/stock-parser | awk -F '[ ]+' '{print \$2}' | cut -d':' -f 2"
+    return executeSSHCommands([command])
+  } catch (Exception ex) {
+    return ''
+  }
 }
 
 // 需要先创建一对密钥，把私钥放在 CODING 凭据管理，把公钥放在服务器的 `.ssh/authorized_keys`，实现 SSH 免密码登录
@@ -111,14 +115,14 @@ String executeSSHCommands(commands) {
   def remote = [:]
   remote.name = 'web-server'
   remote.allowAnyHosts = true
-  remote.host = 'codingstyle.cn'
-  remote.user = 'ruby'
+  remote.host = 'stock.codingstyle.cn'
+  remote.user = 'ansible'
 
   String result
   withCredentials([sshUserPrivateKey(credentialsId: DEPLOY_CREDENTIALS_ID, keyFileVariable: 'id_rsa')]) {
     remote.identityFile = id_rsa
     commands.each {
-      result = sshCommand remote: remote, command: it
+      result = sshCommand remote: remote, command: it, sudo: true
     }
   }
   return result
