@@ -5,9 +5,9 @@ module.exports = class Service {
   async getCodes() {
     const parser = new Parser();
     const plates = await parser.parsePlates();
-    const top5Plates = plates.slice(0, 5);
+    const top2Plates = plates.slice(0, 2);
     const stocks = [];
-    for (const plate of top5Plates) {
+    for (const plate of top2Plates) {
       stocks.push(... await parser.parseStocks(plate.id));
     }
     return stocks.map(r => formatCode(r.code));
