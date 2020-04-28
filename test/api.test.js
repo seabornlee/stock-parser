@@ -22,7 +22,19 @@ describe("Api", () => {
   describe("/code/xml", () => {
     it("responds with 200", () => {
       return request(app)
-        .get("/code/xml")
+          .get("/code/xml")
+          .expect(200)
+          .expect("Content-Type", /xml/)
+          .then(res => {
+            expect(res.text.includes("stk setcode=")).toBeTruthy()
+          })
+    });
+  });
+
+  describe("/kpl/code/xml", () => {
+    it("responds with 200", () => {
+      return request(app)
+        .get("/kpl/code/xml")
         .expect(200)
         .expect("Content-Type", /xml/)
         .then(res => {
