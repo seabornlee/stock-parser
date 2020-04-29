@@ -34,7 +34,7 @@ describe("Api", () => {
   describe("/kpl/code/xml", () => {
     it("responds with 200", () => {
       return request(app)
-        .get("/kpl/code/xml")
+        .get("/kpl/code/xml/1/2")
         .expect(200)
         .expect("Content-Type", /xml/)
         .then(res => {

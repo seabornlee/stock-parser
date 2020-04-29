@@ -1,7 +1,15 @@
 const fetch = require('node-fetch')
 
+const PARAMS = [
+  [7, 1],
+  [5, 2],
+  [4, 2],
+  [6, 2],
+];
+
 module.exports = class KplParser {
-  async parsePlates() {
+  async parsePlates(blockIndex) {
+    const params = PARAMS[blockIndex - 1];
     let result = [];
     await fetch("https://pchq.kaipanla.com/w1/api/index.php", {
       "headers": {
@@ -15,7 +23,7 @@ module.exports = class KplParser {
         "sec-fetch-site": "cross-site"
       },
       "referrerPolicy": "no-referrer-when-downgrade",
-      "body": "c=PCArrangeData&a=GetZSIndexPlate&SelType=2&ZSType=7&PType=1&POrder=1&PStart=&PEnd=&PIndex=0&Pst=20&UserID=&Token=",
+      "body": `c=PCArrangeData&a=GetZSIndexPlate&SelType=2&ZSType=${params[0]}&PType=${params[1]}&POrder=1&PStart=&PEnd=&PIndex=0&Pst=20&UserID=&Token=`,
       "method": "POST",
       "mode": "cors"
     }).then(res => res.json()).then(data => {
