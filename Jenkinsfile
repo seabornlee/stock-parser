@@ -30,7 +30,20 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'npm test'
+        sh 'npm run test:ci'
+      }
+
+      post {
+        always {
+          publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'jest-stare',
+            reportFiles: 'index.html',
+            reportName: 'Test Report'
+          ]
+        }
       }
     }
 
