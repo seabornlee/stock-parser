@@ -26,7 +26,7 @@ describe("Api", () => {
           .expect(200)
           .expect("Content-Type", /xml/)
           .then(res => {
-            expect(res.text.includes("stk setcode=")).toBeTruthy()
+            expect(res.text).not.toBe('')
           })
     });
   });
