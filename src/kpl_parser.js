@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 
 const PARAMS = [
+  // pType: 排序字段1 强度, 2涨幅，3涨速
   [7, 1],
   [5, 2],
   [4, 2],
