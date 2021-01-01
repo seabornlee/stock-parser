@@ -9,8 +9,8 @@ describe('Stock Parser', function() {
       return
     }
 
-    // [ '300529', '健帆生物', '0', '4.7163', '2.6529' ]
-    expect(stocks[0].length).toBe(5)
+    // [ '002159', '三特索道', '0', '0.1674', '6.1925', '1.1437' ]
+    expect(stocks[0].length).toBe(6)
     expect(stocks[0][0].length).toBe(6) // code
   });
 
