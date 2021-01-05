@@ -47,21 +47,21 @@
 </cell>
 </cells>
 <flows>
-<flow startid="1" endid="2" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="5" cxtimetype="1" jgtime="60"/>
+<flow startid="1" endid="2" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="3" cxtimetype="1" jgtime="60"/>
 <flow startid="2" endid="3" clr="255" size="1" tran="0" emptyps="0" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="0" cxtime="0" cxtimetype="0" jgtime="0"/>
-<flow startid="3" endid="4" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="5" cxtimetype="1" jgtime="60"/>
+<flow startid="3" endid="4" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="3" cxtimetype="1" jgtime="60"/>
 <flow startid="4" endid="6" clr="255" size="1" tran="0" emptyps="0" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="0" cxtime="0" cxtimetype="0" jgtime="0"/>
-<flow startid="6" endid="7" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="5" cxtimetype="1" jgtime="60"/>
+<flow startid="6" endid="7" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="3" cxtimetype="1" jgtime="60"/>
 <flow startid="7" endid="9" clr="255" size="1" tran="0" emptyps="0" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="0" cxtime="0" cxtimetype="0" jgtime="0"/>
-<flow startid="9" endid="10" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="5" cxtimetype="1" jgtime="60"/>
+<flow startid="9" endid="10" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="3" cxtimetype="1" jgtime="60"/>
 <flow startid="10" endid="11" clr="255" size="1" tran="0" emptyps="0" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="0" cxtime="0" cxtimetype="0" jgtime="0"/>
-<flow startid="11" endid="12" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="5" cxtimetype="1" jgtime="60"/>
+<flow startid="11" endid="12" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="3" cxtimetype="1" jgtime="60"/>
 <flow startid="12" endid="13" clr="255" size="1" tran="0" emptyps="0" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="0" cxtime="0" cxtimetype="0" jgtime="0"/>
-<flow startid="13" endid="14" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="5" cxtimetype="1" jgtime="60"/>
+<flow startid="13" endid="14" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="3" cxtimetype="1" jgtime="60"/>
 <flow startid="14" endid="15" clr="255" size="1" tran="0" emptyps="0" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="0" cxtime="0" cxtimetype="0" jgtime="0"/>
-<flow startid="15" endid="16" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="5" cxtimetype="1" jgtime="60"/>
+<flow startid="15" endid="16" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="3" cxtimetype="1" jgtime="60"/>
 <flow startid="16" endid="18" clr="255" size="1" tran="0" emptyps="0" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="0" cxtime="0" cxtimetype="0" jgtime="0"/>
-<flow startid="18" endid="19" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="5" cxtimetype="1" jgtime="60"/>
+<flow startid="18" endid="19" clr="255" size="1" tran="1" emptyps="1" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="1" cxtime="3" cxtimetype="1" jgtime="60"/>
 <flow startid="19" endid="20" clr="255" size="1" tran="0" emptyps="0" starttype="0" starttime="0" starttimetype="0" starttimehms="0" cxtype="0" cxtime="0" cxtimetype="0" jgtime="0"/>
 </flows>
 </pool>
