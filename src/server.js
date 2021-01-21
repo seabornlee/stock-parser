@@ -15,11 +15,15 @@ function renderXML(data) {
   return xml.replace("${codes}", nodes.join(""));
 }
 
-app.get("/kpl/code/xml/:blockIndex/:topCount", async (req, res) => {
+app.get("/kpl/code/xml/:zsType/:pType/:topCount", async (req, res) => {
   res.attachment("开盘啦板块.xml");
   res.send(
     renderXML(
-      await kplService.getCodes(req.params.blockIndex, req.params.topCount)
+      await kplService.getCodes(
+        req.params.zsType,
+        req.params.pType,
+        req.params.topCount
+      )
     )
   );
 });
