@@ -1,7 +1,7 @@
 def npm_registry = 'https://registry.npm.taobao.org'
 
-heathCheckURL = "http://111.231.101.187:5000/kpl/code/xml/7/5/5"
-DEPLOY_CREDENTIALS_ID = "txy"
+heathCheckURL = "http://stock.codingstyle.cn/kpl/code/xml/7/5/5"
+DEPLOY_CREDENTIALS_ID = "gcp"
 ARTIFACTS_CREDENTIALS_ID = "seabornlee-dockerhub"
 dockerServer = "" // Docker Hub, useful when use private registry
 artifactName = "stock-parser"
@@ -135,7 +135,7 @@ String executeSSHCommands(commands) {
   remote.name = 'web-server'
   remote.allowAnyHosts = true
   remote.host = 'stock.codingstyle.cn'
-  remote.user = 'ansible'
+  remote.user = 'hkliya_gmail_com'
 
   String result
   withCredentials([sshUserPrivateKey(credentialsId: DEPLOY_CREDENTIALS_ID, keyFileVariable: 'id_rsa')]) {
