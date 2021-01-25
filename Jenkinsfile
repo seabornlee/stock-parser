@@ -1,6 +1,6 @@
 def npm_registry = 'https://registry.npm.taobao.org'
 
-heathCheckURL = "http://111.231.101.187:5000/kpl/code/xml/7/5/5"
+heathCheckURL = "http://stock.codingstyle.cn/kpl/code/xml/7/5/5"
 DEPLOY_CREDENTIALS_ID = "txy"
 ARTIFACTS_CREDENTIALS_ID = "seabornlee-dockerhub"
 dockerServer = "" // Docker Hub, useful when use private registry
